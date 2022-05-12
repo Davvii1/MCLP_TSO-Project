@@ -35,8 +35,8 @@ non_covered_points = list(demand_points)
 of = 0
 selected_sites = []
 covered_points = []
-S = len(selected_sites)
 completed = True
+individual_covered = []
 
 while len(selected_sites)<sf:
     for site in non_selected_sites:
@@ -52,6 +52,7 @@ while len(selected_sites)<sf:
         if count > 0 and completed:
                 selected_sites.append(site)
                 non_selected_sites.remove(site)
+                individual_covered.append([site, count])
         of += count
 
 print("Selected sites:", selected_sites)
@@ -59,3 +60,4 @@ print("Non selected sites", non_selected_sites)
 print("Covered points:", covered_points)
 print("Non covered points:", non_covered_points)
 print("Objective function:", of)
+print("Number of points covered by every site:", individual_covered)

@@ -36,23 +36,26 @@ of = 0
 selected_sites = []
 covered_points = []
 S = len(selected_sites)
+completed = True
 
-for i in range(sf):
+while len(selected_sites)<sf:
     for site in non_selected_sites:
+        if len(selected_sites)>=sf:
+            completed = False
         count = 0
         for point in non_covered_points:
             d = sqrt((point[0] - site[0]) ** 2 + (site[1] - point[1]) ** 2)
-            if d < r:
-                covered_points.append(point)
-                non_covered_points.remove(point)
-                count += 1
-        if count > 1:
-            selected_sites.append(site)
-            non_selected_sites.remove(site)
+            if d < r and completed:
+                    covered_points.append(point)
+                    non_covered_points.remove(point)
+                    count += 1
+        if count > 0 and completed:
+                selected_sites.append(site)
+                non_selected_sites.remove(site)
         of += count
 
 print("Selected sites:", selected_sites)
 print("Non selected sites", non_selected_sites)
 print("Covered points:", covered_points)
 print("Non covered points:", non_covered_points)
-print("Objective function", of)
+print("Objective function:", of)

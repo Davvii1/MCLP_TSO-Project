@@ -20,7 +20,9 @@ def Constructive(candidate, demand, p, f, sf, r):
     covered_points = []
     individual_covered = []
 
-    while len(selected_sites)<sf:
+    iteration = 0
+
+    while len(selected_sites)<sf and iteration < len(demand)*100:
         for site in non_selected_sites:
             if len(selected_sites)>=sf:
                 break
@@ -32,11 +34,13 @@ def Constructive(candidate, demand, p, f, sf, r):
                         non_covered_points.remove(point)
                         count += 1
             if count > 0:
-                    selected_sites.append(site)
-                    non_selected_sites.remove(site)
-                    individual_covered.append([site, count])
-                    of += count
-                    break
+                selected_sites.append(site)
+                non_selected_sites.remove(site)
+                individual_covered.append([site, count])
+                of += count
+                break
+            else:
+                iteration += 1
 
     title = "p =" + str(p) + " f =" + str(f) + " sf =" + str(sf) + " r  =" + str(r)
 

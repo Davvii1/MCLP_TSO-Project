@@ -7,9 +7,6 @@ import Plotter as plot
 def LocalSearch(demand, candidate, prev_of, sf, r, title, p):
 
     non_covered_points = list(demand)
-    covered_points = []
-
-    selected_sites = []
     non_selected_sites = list(candidate)
     new_individual_covered = []
     new_of = 0
@@ -25,15 +22,16 @@ def LocalSearch(demand, candidate, prev_of, sf, r, title, p):
         new_of += count
 
     new_individual_covered.sort(key=itemgetter(1), reverse=True)
-
     new_selected_sites_w_count = [new_individual_covered[x] for x in range(sf)]
     new_selected_sites = [site[0] for site in new_selected_sites_w_count]
+    covered_points = [point for point in demand if point not in non_covered_points]
+    non_selected_sites = [site for site in candidate if site not in new_selected_sites]
+
     print("Selected sites:", new_selected_sites)
     print("Non selected sites:", non_selected_sites)
     print("Covered points:", covered_points)
     print("Non covered points:", non_covered_points)
     print("Objective function:", new_of)
-    print("Number of points covered by every site:", new_selected_sites_w_count)
     plot.addCirclesToPlot(demand, candidate, new_selected_sites, new_of, title, p, r, "LocalSearchHeuristicApplied.jpg")
     
 

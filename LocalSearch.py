@@ -1,10 +1,12 @@
-from hashlib import new
 from math import sqrt
 from operator import itemgetter
-import Constructive as constructive
 import Plotter as plot
+import time
 
 def LocalSearch(demand, candidate, prev_of, sf, r, title, p):
+
+    # Starting time of constructive
+    s_count = time.time()
 
     non_covered_points = list(demand)
     non_selected_sites = list(candidate)
@@ -34,6 +36,8 @@ def LocalSearch(demand, candidate, prev_of, sf, r, title, p):
     print("Objective function:", new_of)
     plot.addCirclesToPlot(demand, candidate, new_selected_sites, new_of, title, p, r, "LocalSearchHeuristicApplied.jpg")
     
+    # Showing the running time
+    print("-- Running time Local Search: " + str(round(time.time() - s_count)) + " seconds --")
 
     if new_of > prev_of:
         print("Solution improved")

@@ -1,8 +1,11 @@
 from math import sqrt
-from numpy.random import default_rng
 import Plotter as plot
+import time
 
 def Constructive(candidate, demand, p, f, sf, r):
+
+    # Starting time of constructive
+    s_count = time.time()
 
     # Data to analize
     demand_points = demand
@@ -44,5 +47,8 @@ def Constructive(candidate, demand, p, f, sf, r):
     print("Non covered points:", non_covered_points)
     print("Objective function:", of)
     plot.addCirclesToPlot(demand_points, candidate_sites, selected_sites, of, title, p, r, "ConstructiveHeuristicApplied.jpg")
+
+    # Showing the running time
+    print("-- Running time Constructive: " + str(round(time.time() - s_count)) + " seconds --")
 
     return demand_points, candidate_sites, of, sf, r, title, p

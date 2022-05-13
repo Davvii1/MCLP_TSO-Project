@@ -34,7 +34,7 @@ def LocalSearch(demand, candidate, prev_of, sf, r, title, p):
     print("Non covered points:", non_covered_points)
     print("Objective function:", new_of)
     print("Number of points covered by every site:", new_selected_sites_w_count)
-    plot.addCirclesToPlot(demand, candidate, new_selected_sites, new_of, title, p, r, "Local Search Heuristic Applied")
+    plot.addCirclesToPlot(demand, candidate, new_selected_sites, new_of, title, p, r, "LocalSearchHeuristicApplied.jpg")
     
 
     if new_of > prev_of:

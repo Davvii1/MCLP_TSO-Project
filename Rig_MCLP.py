@@ -1,5 +1,4 @@
 from numpy.random import default_rng
-import random
 import os.path
 import time
 

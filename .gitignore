@@ -1,7 +1,8 @@
 Constructive1.ipynb
 LocalSearch_MCLP.ipynb
-"Initial Plot.png"
-"Local Search Heuristic Applied.png"
-"Constructive Heuristic Applied.png"
 /.idea
 /__pycache__
+.gitignore
+InitialPlot.jpg
+ConstructiveHeuristicApplied.jpg
+LocalSearchHeuristicApplied.jpg

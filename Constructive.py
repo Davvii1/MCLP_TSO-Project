@@ -1,34 +1,12 @@
-import numpy as np
-import matplotlib.pyplot as plt
 from math import sqrt
-from operator import itemgetter
 from numpy.random import default_rng
+import Plotter as plot
 
-def returnCS():
-    p = 50
-    f = 10
-    sf = 5
-    r = 5
-
-
-    # Generate Demand points
-    dx_points = default_rng().choice(p, size=(p - f), replace=False)
-    dy_points = default_rng().choice(p, size=(p - f), replace=False)
-
-    # Generate candidate sites
-    csx_points = default_rng().choice(p, size=(f), replace=False)
-    csy_points = default_rng().choice(p, size=(f), replace=False)
+def Constructive(candidate, demand, p, f, sf, r):
 
     # Data to analize
-    demand_points = []
-    candidate_sites = []
-
-    for x in range(p - f):
-        demand_points.append([dx_points[x], dy_points[x]])
-
-    for x in range(f):
-        candidate_sites.append([csx_points[x], csy_points[x]])
-
+    demand_points = demand
+    candidate_sites = candidate
 
     # Divide data
     non_selected_sites = list(candidate_sites)
@@ -57,10 +35,15 @@ def returnCS():
                     of += count
                     break
 
+    title = "p =" + str(p) + " f =" + str(f) + " sf =" + str(sf) + " r  =" + str(r)
+
+    plot.showInitialPlot(demand_points, candidate_sites, p, title, "Initial Plot")
     print("Selected sites:", selected_sites)
     print("Non selected sites", non_selected_sites)
     print("Covered points:", covered_points)
     print("Non covered points:", non_covered_points)
     print("Objective function:", of)
     print("Number of points covered by every site:", individual_covered)
-    return demand_points, candidate_sites, of, sf, r
+    plot.addCirclesToPlot(demand_points, candidate_sites, selected_sites, of, title, p, r, "Constructive Heuristic Applied")
+
+    return demand_points, candidate_sites, of, sf, r, title, p

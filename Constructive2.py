@@ -5,6 +5,10 @@ from operator import itemgetter
 
 def Constructive(candidate, demand, p, f, sf, r):
 
+    title = "p=" + str(p) + " f=" + str(f) + " sf=" + str(sf) + " r=" + str(r)
+    plot.showInitialPlot(demand, candidate, p, title, "InitialPlot.jpg")
+
+    print("-- Constructive Heuristic 1 --")
     # Starting time of constructive
     s_count = time.time()
 
@@ -41,12 +45,11 @@ def Constructive(candidate, demand, p, f, sf, r):
                 count += 1
         individual_covered.append([site, count])
         of += count  
-    
-    title = "p=" + str(p) + " f=" + str(f) + " sf=" + str(sf) + " r=" + str(r)
-    plot.showInitialPlot(demand_points, candidate_sites, p, title, "InitialPlot.jpg")
+
+
     print(of)
     print("Selected sites with count of covered points:", individual_covered)
     plot.addCirclesToPlot(demand_points, candidate_sites, sites_to_analize, of, title, p, r, "Constructive2HeuristicApplied.jpg")
 
     # Showing the running time
-    print(str(time.time() - s_count))
+    print("Running time:" + str(time.time() - s_count))

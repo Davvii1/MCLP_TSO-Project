@@ -26,9 +26,9 @@ def Constructive(candidate, demand, p, f, sf, r):
 
     sites_to_analize = []
     for y in range(len(candidate_sites)):
-        if len(sites_to_analize)<sf:
+        if len(sites_to_analize)<sf and sites_to_count[y][0] not in sites_to_analize:
             sites_to_analize.append(sites_to_count[y][0])
-            if len(sites_to_analize)<sf:
+            if len(sites_to_analize)<sf and sites_to_count[y][1] not in sites_to_analize:
                 sites_to_analize.append(sites_to_count[y][1])
 
     for site in sites_to_analize:

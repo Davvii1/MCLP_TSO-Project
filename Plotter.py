@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 def showInitialPlot(d_points, cs_points, p, title, saveName):
     fig = plt.figure(figsize=(10,10))
     plt.title(title)
-    plt.suptitle('Random Generated Demand and Candidate Points')
     if p >= 100:
         ms = 1
     else:
@@ -18,7 +17,6 @@ def addCirclesToPlot(d_points, cs_points, selected_points, of, title, p, r, save
     fig = plt.figure(figsize=(10,10))
     ax = plt.gca()
     plt.title(title)
-    plt.suptitle('Random Generated Demand and Candidate Points')
     if p >= 100:
         ms = 1
     else:

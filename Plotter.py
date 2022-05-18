@@ -29,3 +29,24 @@ def addCirclesToPlot(d_points, cs_points, selected_points, of, title, p, r, save
     plt.xlabel('Objective Function: ' + str(of))
     plt.savefig(saveName)
     plt.show()
+
+
+def addCirclesToPlotLS(d_points, cs_points, selected_points, prev_selected, of, title, p, r, saveName):
+    fig = plt.figure(figsize=(10,10))
+    ax = plt.gca()
+    plt.title(title)
+    if p >= 100:
+        ms = 1
+    else:
+        ms = 20
+    plt.scatter([i[0] for i in d_points], [i[1] for i in d_points], c='black', s=ms)
+    plt.scatter([i[0] for i in cs_points], [i[1] for i in cs_points], c='red', s=ms + 15)
+    for point in prev_selected:
+        circle = plt.Circle((point[0], point[1]), r, color='blue', fill=False)
+        ax.add_patch(circle)
+    for point in selected_points:
+        circle = plt.Circle((point[0], point[1]), r, color='green', fill=False)
+        ax.add_patch(circle)
+    plt.xlabel('Objective Function: ' + str(of))
+    plt.savefig(saveName)
+    plt.show()

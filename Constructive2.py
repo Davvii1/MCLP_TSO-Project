@@ -39,7 +39,7 @@ def Constructive(candidate, demand, p, f, sf, r):
 
     title = "p=" + str(p) + " f=" + str(f) + " sf=" + str(sf) + " r=" + str(r)
 
-    print(of)
+    print("Objective function:", of)
     print("Selected sites with count of covered points:", individual_covered)
     plot.addCirclesToPlot(demand_points, candidate_sites, selected_sites, of, title, p, r, "ConstructiveHeuristicApplied.jpg")
 

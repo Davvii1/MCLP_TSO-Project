@@ -39,8 +39,9 @@ def LocalSearch(demand, candidate, prev_of, sf, r, title, p, prev_selected):
     non_selected_sites = [site for site in demand if site not in new_selected_sites]
 
 
-    print(total_obj)
+    print("Objective function:", total_obj)
     print("New selected sites with count of covered points:", selected_to_compare)
+    print("Moves:", moves)
     plot.addCirclesToPlotLS(demand, candidate, new_selected_sites, coord_prev_selected, total_obj, title, p, r, "LocalSearchHeuristicApplied.jpg")
     
     # Showing the running time

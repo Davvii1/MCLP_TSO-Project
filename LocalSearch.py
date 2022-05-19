@@ -45,7 +45,7 @@ def LocalSearch(demand, candidate, prev_of, sf, r, title, p, prev_selected):
     plot.addCirclesToPlotLS(demand, candidate, new_selected_sites, coord_prev_selected, total_obj, title, p, r, "LocalSearchHeuristicApplied.jpg")
     
     # Showing the running time
-    print(str(time.time() - s_count))
+    print(" -- Running time:" + str(time.time() - s_count) + " --")
     print(" ")
     # if total_obj > prev_of:
         # print("Solution improved")

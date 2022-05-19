@@ -53,6 +53,6 @@ def Constructive(candidate, demand, p, f, sf, r):
     plot.addCirclesToPlot(demand_points, candidate_sites, sites_to_analize, of, title, p, r, "Constructive2HeuristicApplied.jpg")
 
     # Showing the running time
-    print(str(time.time() - s_count))
+    print(" -- Running time:" + str(time.time() - s_count) + " --")
 
     return demand_points, candidate_sites, of, sf, r, title, p, individual_covered
